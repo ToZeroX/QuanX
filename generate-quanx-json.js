@@ -3,7 +3,8 @@ const path = require('path')
 const sharp = require('sharp');
 
 const dirPath = path.join(__dirname, './IconSrc')
-const files = fs.readdirSync(dirPath)
+const support = ['.svg', '.jpg', '.png']
+const files = fs.readdirSync(dirPath).filter(item => support.some(v => item.endsWith(v)))
 
 try {
   fs.rmSync(path.join(__dirname, 'IconOutput'), { recursive: true, force: true })
