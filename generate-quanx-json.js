@@ -12,7 +12,7 @@ try {
 }
 fs.mkdirSync('./IconOutput')
 
-const baseUrl = 'https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/'
+const baseUrl = 'https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/'
 const baseConfig = {
   name: '圈x 图标',
   description: 'By ToZero',
