@@ -3,8 +3,60 @@
   "description": "By ToZero",
   "icons": [
     {
+      "name": "Airport",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Airport.png"
+    },
+    {
+      "name": "Alibaba",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Alibaba.png"
+    },
+    {
+      "name": "App_Store",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/App_Store.png"
+    },
+    {
+      "name": "Apple",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Apple.png"
+    },
+    {
+      "name": "Apple_Music",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Apple_Music.png"
+    },
+    {
+      "name": "Apple_TV",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Apple_TV.png"
+    },
+    {
       "name": "Binance",
       "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Binance.png"
+    },
+    {
+      "name": "Disney+",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Disney+.png"
+    },
+    {
+      "name": "Netease_Music",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Netease_Music.png"
+    },
+    {
+      "name": "Netease_Music_Unlock",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Netease_Music_Unlock.png"
+    },
+    {
+      "name": "Netflix",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Netflix.png"
+    },
+    {
+      "name": "Netflix_Letter",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Netflix_Letter.png"
+    },
+    {
+      "name": "Rocket-1",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/Rocket-1.png"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://raw.githubusercontent.com/Pharaohz5/QuanX/main/IconOutput/TikTok.png"
     },
     {
       "name": "bilibili",
