@@ -3,6 +3,18 @@
   "description": "By ToZero",
   "icons": [
     {
+      "name": "AI Platforms",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/AI Platforms.png"
+    },
+    {
+      "name": "AdBlack",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/AdBlack.png"
+    },
+    {
+      "name": "AdWhite",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/AdWhite.png"
+    },
+    {
       "name": "Airport",
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Airport.png"
     },
@@ -27,12 +39,32 @@
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Apple_TV.png"
     },
     {
+      "name": "Available",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Available.png"
+    },
+    {
       "name": "Binance",
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Binance.png"
     },
     {
       "name": "Disney+",
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Disney+.png"
+    },
+    {
+      "name": "Dler",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Dler.png"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Facebook.png"
+    },
+    {
+      "name": "Final",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Final.png"
+    },
+    {
+      "name": "Flower",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Flower.png"
     },
     {
       "name": "Netease_Music",
@@ -55,8 +87,28 @@
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Rocket-1.png"
     },
     {
+      "name": "Telegram",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Telegram.png"
+    },
+    {
       "name": "TikTok",
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/TikTok.png"
+    },
+    {
+      "name": "Vpn",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Vpn.png"
+    },
+    {
+      "name": "WIFI",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/WIFI.png"
+    },
+    {
+      "name": "Wallless",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Wallless.png"
+    },
+    {
+      "name": "Xingmeng",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/Xingmeng.png"
     },
     {
       "name": "bilibili",
@@ -65,6 +117,10 @@
     {
       "name": "icon_bilibili",
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/icon_bilibili.png"
+    },
+    {
+      "name": "logo",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/logo.png"
     },
     {
       "name": "rocket",
