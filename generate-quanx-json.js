@@ -46,7 +46,7 @@ const main = async () => {
 
     baseConfig.icons.push({
       name,
-      url: path.join(baseUrl, iconName)
+      url: baseUrl + iconName
     })
   }
 
