@@ -6,7 +6,7 @@
 📖 使用 教程: https://tinyurl.com/2jyygfom
 🗣 🆃🄷🄰🄽🄺🅂 🆃🄾  @Jamie CHIEN, @M**F**, @c0lada, @Peng-YM, @vinewx, @love4taylor, @shadowdogy 
 
-🤖 主要功能: ver = 1.0
+🤖 主要功能: ver = 1.4
 ❶ 将其它格式的⟦服务器订阅⟧解析成 𝐐𝐮𝐚𝐧𝐭𝐮𝐦𝐮𝐥𝐭 𝐗 格式
 ☑︎ 支持 𝐕2𝐫𝐚𝐲𝐍/𝗦𝗦(𝗥/𝗗)/𝗛𝗧𝗧𝗣(𝗦)/𝗧𝗿𝗼𝗷𝗮𝗻/𝐕𝐋𝗲𝐬𝐬/𝗤𝘂𝗮𝗻𝘁𝘂𝗺𝘂𝗹𝘁(𝗫)/𝗦𝘂𝗿𝗴𝗲/𝐂𝐥𝐚𝐬𝐡/𝐒𝐡𝐚𝐝𝐨𝐰𝐫𝐨𝐜𝐤𝐞𝐭/𝐋𝐨𝐨𝐧 格式
 ☑︎ 提供说明 1⃣️ 中的可选个性化参数(筛选、重命名 等)
@@ -129,7 +129,8 @@ const Base64 = new Base64Code();
 const escapeRegExp = str => str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'); //处理特殊符号以便正则匹配使用
 var link1 = link0.split("#")[0]
 const qxpng = "https://raw.githubusercontent.com/crossutility/Quantumult-X/master/quantumult-x.png" // server sub-info link
-const subinfo_link = { "open-url": "https://t.me/QuanX_API", "media-url": "https://shrtm.nu/ebAr" };
+// const subinfo_link = { "open-url": "https://t.me/QuanX_API", "media-url": "https://shrtm.nu/ebAr" };
+const subinfo_link = { "media-url": qxpng };
 const subinfo_link1 = { "open-url": link1, "media-url": "https://shrtm.nu/uo13" } // server sub-info link(fake-nodes)
 const rwrite_link = { "open-url": link1, "media-url": "https://shrtm.nu/x3o2" } // rewrite filter link
 const rwhost_link = { "open-url": link1, "media-url": "https://shrtm.nu/0n5J" } // hostname filter link
@@ -320,7 +321,6 @@ function Parser () {
         $notify(link0, type0, content0)
       }
       total = ResourceParse();
-
     } catch (err) {
       if (Perror == 0) {
         $notify("❌ 解析出现错误", "⚠️ 请点击通知，发送订阅链接进行反馈", err, bug_link);
@@ -502,12 +502,40 @@ function ResourceParse () {
       total = TagCheck_QX(total).join("\n") //节点名检查
       if (PUOT == 1) { total = total.split("\n").map(UOT).join("\n") }
       if (Pcnt == 1) { $notify("⟦" + subtag + "⟧" + "解析后最终返回内容", "节点数量: " + total.split("\n").length, total) }
+      var leftflowReg = /剩余流量/gmi
+      var totalFlowReg = /(总流量|流量总量)/gmi
+      var flowData = getSubFlow()
+      // $notify('3333', 'json', JSON.stringify(total), subinfo_link)
+      if (leftflowReg.test(total)) { // 有剩余流量标签，直接替换文案
+        total = total.replace(leftflowReg, '流量剩余')
+      } else { // 没有的话 新增剩余流量标签
+        total = total.split('\n')
+        var fakeData = total[0]
+        fakeData = fakeData.replace(/tag=.*,?\s?/gmi, "tag=流量剩余:   " + Number(flowData.leftNumber) + ' GB');
+        total.unshift(fakeData)
+        total = total.join('\n')
+      }
+
+      if (totalFlowReg.test(total)) { // 总流量
+        total = total.replace(totalFlowReg, '流量总量')
+      } else { // 没有的话 新增流量总量标签
+        total = total.split('\n')
+        var fakeData = total[0]
+        fakeData = fakeData.replace(/tag=.*,?\s?/gmi, "tag=流量总量:   " + Number(flowData.totalNumber) + ' GB');
+        total.unshift(fakeData)
+        // $notify('3333', 'json', fakeData, subinfo_link)
+        total = total.join('\n')
+      }
+
       total = PRelay == "" ? Base64.encode(total) : ServerRelay(total.split("\n"), PRelay) //强制节点类型 base64 加密后再导入 Quantumult X, 如果是relay，则转换成分流类型
       if (Pflow == 1) {
         //$notify("添加流量信息","xxx","xxxx")
         $done({ content: total, info: { bytes_used: 3073741824, bytes_remaining: 2147483648, expire_date: 1854193966 } });
         //$notify("done?","strange")
-      } else { $done({ content: total }); }
+      } else {
+        // $notify('3333', 'json', JSON.stringify(Base64.decode(total)), subinfo_link)
+        $done({ content: total });
+      }
     } else {
       if (Perror == 0) {
         $notify("❓❓ 友情提示 ➟ " + "⟦" + subtag + "⟧", "⚠️⚠️ 解析后无有效内容", "🚥🚥 请自行检查相关参数, 或者点击通知跳转并发送链接反馈", bug_link)
@@ -527,6 +555,53 @@ function ResourceParse () {
 
 }
 
+function formatDate (number, type = 'year') {
+  var map = {
+    year: '2099',
+    month: '12',
+    day: '31'
+  }
+  if (isNaN(number)) {
+    return map[type]
+  }
+  return number
+}
+
+//响应头流量处理部分
+function getSubFlow () {
+  var sinfo = subinfo.replace(/ /g, "").toLowerCase();
+  var totalNumber = (parseFloat(sinfo.split("total=")[1].split(",")[0]) / (1024 ** 3)).toFixed(2)
+  var usdNumber = ((parseFloat(sinfo.indexOf("upload") != -1 ? sinfo.split("upload=")[1].split(",")[0] : "0") + parseFloat(sinfo.split("download=")[1].split(",")[0])) / (1024 ** 3)).toFixed(2)
+  var leftNumber = ((parseFloat(sinfo.split("total=")[1].split(",")[0]) / (1024 ** 3)) - ((parseFloat(sinfo.indexOf("upload") != -1 ? sinfo.split("upload=")[1].split(",")[0] : "0") + parseFloat(sinfo.split("download=")[1].split(",")[0])) / (1024 ** 3))).toFixed(2)
+
+  var total = "总流量: " + totalNumber + "GB";
+  var usd = "已用流量: " + usdNumber + "GB"
+  var left = "剩余流量: " + leftNumber + "GB"
+  var epr
+  if (sinfo.indexOf("expire=") != -1) {
+    epr = new Date(parseFloat(sinfo.split("expire=")[1].split(",")[0]) * 1000);
+    var year = epr.getFullYear();  // 获取完整的年份(4位,1970)
+    var mth = epr.getMonth() + 1 < 10 ? '0' + (epr.getMonth() + 1) : (epr.getMonth() + 1);  // 获取月份(0-11,0代表1月,用的时候记得加上1)
+    var day = epr.getDate() < 10 ? "0" + (epr.getDate()) : epr.getDate();
+    if (isNaN(epr)) {
+      epr = "过期时间: " + '无限制'
+    } else {
+      epr = "过期时间: " + year + "-" + mth + "-" + day
+    }
+  } else {
+    epr = ""; //"过期时间: ✈️ 未提供該信息" //没过期时间的显示订阅链接
+  }
+  return {
+    total,
+    totalNumber,
+    usd,
+    usdNumber,
+    left,
+    leftNumber,
+    epr
+  }
+}
+
 //响应头流量处理部分
 function SubFlow () {
   if (Pinfo == 1 && subinfo) {
@@ -539,7 +614,11 @@ function SubFlow () {
       var year = epr.getFullYear();  // 获取完整的年份(4位,1970)
       var mth = epr.getMonth() + 1 < 10 ? '0' + (epr.getMonth() + 1) : (epr.getMonth() + 1);  // 获取月份(0-11,0代表1月,用的时候记得加上1)
       var day = epr.getDate() < 10 ? "0" + (epr.getDate()) : epr.getDate();
-      epr = "过期时间: " + year + "-" + mth + "-" + day
+      if (isNaN(epr)) {
+        epr = "过期时间: " + '无限制'
+      } else {
+        epr = "过期时间: " + year + "-" + mth + "-" + day
+      }
     } else {
       epr = ""; //"过期时间: ✈️ 未提供該信息" //没过期时间的显示订阅链接
     }
