@@ -545,7 +545,7 @@ function SubFlow () {
     }
     var message = total + "\n" + usd + ", " + left;
     ntf_flow = 1;
-    $notify("流量信息: ⟦" + subtag + (epr.toString() || '111') + "⟧", new Date('2099-12-31 00:00:00'), message, subinfo_link)
+    $notify("流量信息: ⟦" + subtag + "⟧", epr, message, subinfo_link)
   }
   //  } else if (Pinfo ==1){
   //    $notify("流量信息: ⟦" + subtag + "⟧", "", "⚠️ 该订阅链接未返回任何流量信息", subinfo_link)
@@ -566,7 +566,7 @@ function flowcheck (cnt) {
   }
   flow = flow ? flow : "⚠️ 该订阅未返回任何流量信息"
   exptime = exptime ? exptime : "⚠️ 该订阅未返回套餐时间信息"
-  if (flow != "") { $notify("流量信息: ⟦" + subtag + "⟧", flow, exptime, subinfo_link1) }
+  if (flow == "") { $notify("流量信息: ⟦" + subtag + "⟧", flow, exptime, subinfo_link1) }
 }
 
 // regex 后的检查
