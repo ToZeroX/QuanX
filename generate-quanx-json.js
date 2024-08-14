@@ -20,20 +20,39 @@ const baseConfig = {
   icons: []
 }
 
-const width = 108;
-const height = 108;
+const width = 128;
+const height = 128;
 
 const outputImg = async iconName => {
   return new Promise((resolve, reject) => {
-    sharp(path.join(__dirname, 'IconSrc', iconName))
-    .resize(width, height)
-    .toFile(path.join(__dirname, 'IconOutput', iconName), (err, info) => {
-      if (err) {
-        reject(err)
-      } else {
-        resolve(info)
-      }
-    });
+    if (iconName.includes('extend')) {
+      sharp(path.join(__dirname, 'IconSrc', iconName))
+        .resize(width, height)
+        .extend({
+          top: 32,
+          bottom: 32,
+          left: 32,
+          right: 32,
+          background: 'transparent'
+        })
+        .toFile(path.join(__dirname, 'IconOutput', iconName), (err, info) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(info)
+          }
+        });
+    } else {
+      sharp(path.join(__dirname, 'IconSrc', iconName))
+        .resize(width, height)
+        .toFile(path.join(__dirname, 'IconOutput', iconName), (err, info) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(info)
+          }
+        });
+    }
   })
 }
 
