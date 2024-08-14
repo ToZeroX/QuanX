@@ -12,12 +12,11 @@ function cityCheck(parameter) {
 	}
 }
 var body = $response.body;
+$notify(body, body, body)
 var obj = JSON.parse(body);
 var ip = obj['query'];
 var country = obj['country'];
 var city = obj['city'];
-
-$notify(JSON.stringify(obj, null, 2))
 
 function createTitle() {
 	if (city) {
