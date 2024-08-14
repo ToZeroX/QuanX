@@ -12,7 +12,7 @@ function cityCheck(parameter) {
 	}
 }
 var body = $response.body;
-$notify('3333', 'json', body)
+$notify('3333', 'json', JSON.stringify($response, null, 2))
 var obj = JSON.parse(body);
 var ip = obj['query'];
 var country = obj['country'];
