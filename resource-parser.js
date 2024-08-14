@@ -536,7 +536,7 @@ function ResourceParse () {
         // $notify('3333', 'json', JSON.stringify(Base64.decode(total)), subinfo_link)
         $done({ content: total });
       }
-      $notify('3333', 'json', JSON.stringify(Base64.decode(total)), subinfo_link)
+      // $notify('3333', 'json', JSON.stringify(Base64.decode(total)), subinfo_link)
     } else {
       if (Perror == 0) {
         $notify("❓❓ 友情提示 ➟ " + "⟦" + subtag + "⟧", "⚠️⚠️ 解析后无有效内容", "🚥🚥 请自行检查相关参数, 或者点击通知跳转并发送链接反馈", bug_link)
