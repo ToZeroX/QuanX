@@ -505,7 +505,7 @@ function ResourceParse () {
       var leftflowReg = /剩余流量/gmi
       var totalFlowReg = /(总流量|流量总量)/gmi
       var flowData = getSubFlow()
-      // $notify('3333', 'json', JSON.stringify(total), subinfo_link)
+
       if (leftflowReg.test(total)) { // 有剩余流量标签，直接替换文案
         total = total.replace(leftflowReg, '流量剩余')
       } else { // 没有的话 新增剩余流量标签
@@ -536,6 +536,7 @@ function ResourceParse () {
         // $notify('3333', 'json', JSON.stringify(Base64.decode(total)), subinfo_link)
         $done({ content: total });
       }
+      $notify('3333', 'json', JSON.stringify(Base64.decode(total)), subinfo_link)
     } else {
       if (Perror == 0) {
         $notify("❓❓ 友情提示 ➟ " + "⟦" + subtag + "⟧", "⚠️⚠️ 解析后无有效内容", "🚥🚥 请自行检查相关参数, 或者点击通知跳转并发送链接反馈", bug_link)
