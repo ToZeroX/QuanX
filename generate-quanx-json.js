@@ -28,7 +28,7 @@ const outputImg = async iconName => {
     if (iconName.includes('extend')) {
       const padding = 24
       sharp(path.join(__dirname, 'IconSrc', iconName))
-        .resize(width - padding, height - padding)
+        .resize(width - padding * 2, height - padding * 2)
         .extend({
           top: padding,
           bottom: padding,
