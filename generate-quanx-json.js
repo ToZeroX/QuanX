@@ -26,7 +26,7 @@ const height = 108;
 const outputImg = async iconName => {
   return new Promise((resolve, reject) => {
     if (iconName.includes('.r.')) {
-      const padding = 24
+      const padding = 16
       sharp(path.join(__dirname, 'IconSrc', iconName))
         .resize(width - padding * 2, height - padding * 2)
         .extend({
