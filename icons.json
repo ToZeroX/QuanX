@@ -163,6 +163,10 @@
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/icon_bilibili.png"
     },
     {
+      "name": "proxy",
+      "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/proxy.png"
+    },
+    {
       "name": "rocket",
       "url": "https://raw.githubusercontent.com/ToZeroX/QuanX/main/IconOutput/rocket.png"
     }
