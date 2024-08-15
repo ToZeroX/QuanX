@@ -20,8 +20,8 @@ const baseConfig = {
   icons: []
 }
 
-const width = 128;
-const height = 128;
+const width = 108;
+const height = 108;
 
 const outputImg = async iconName => {
   return new Promise((resolve, reject) => {
