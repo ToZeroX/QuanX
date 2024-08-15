@@ -271,9 +271,34 @@ var flags = new Map([
 	["ZM", "🇿🇲"],
 	["ZW", "🇿🇼"]
 ]);
+
+var join = function () {
+  var str = ''
+  for (var i = 0; i < arguments.length; i++) {
+    var data = arguments[i]
+    if (data) {
+      str += ' ' + data + ' '
+    }
+  }
+  return str.trim()
+}
+
 var title = flags.get(obj['countryCode']) + ' ' + (obj['country'] ? (' ' + obj['country']) : '') + cityCheck(obj['city']);
-var subtitle = ip + ' • ' + ispCheck(obj['isp']);
+var subtitle = join('⛱', obj.query ) // ip + ' • ' + ispCheck(obj['isp']);
 var description = '城市：' + createTitle() + '\n地区：' + cityCheck(obj['regionName']) + '\nIP：' + ip + '\n时区：' + obj['timezone'] + '\n服务商：' + obj['isp'] + '\nAS：' + obj['as'];
+var l = $response['body'];
+var m = JSON['parse'](l);
+// var n = a(m['countryCode']) + '\x20' + j(d(e(f(m['country'])), b(f(m['regionName']), f(m['city']))));
+var title = d(e(f(m['country'])), b(f(m['regionName']), f(m['city'])))
+var o = i('⛱', c(m['as']), m['query']);
+var p = m['query'];
+var q = '-----------------------------------' + '\x0a\x0a' + '国家/地区:' + d(e(f(m['country'])), b(f(m['regionName']), f(m['city']))) + '\x0a\x0a' + '时区:' + m['timezone'] + '\x0a\x0a' + 'IP:' + m['query'] + '\x0a\x0a' + '经度:' + m['lon'] + '\x20\x20' + '纬度:' + m['lat'] + '\x0a\x0a' + k(m['isp'], m['org']);
+$done({
+	'title': title, // n,
+	'subtitle': o,
+	'ip': p,
+	'description': q
+});
 $done({
 	title,
 	subtitle,
