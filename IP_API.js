@@ -271,7 +271,7 @@ var flags = new Map([
 	["ZM", "🇿🇲"],
 	["ZW", "🇿🇼"]
 ]);
-var title = flags.get(obj['countryCode']) + ' ' + cityCheck(obj['city'] || obj['country']);
+var title = flags.get(obj['countryCode']) + ' ' + (obj['country'] ? (' ' + obj['country']) : '') + cityCheck(obj['city']);
 var subtitle = ip + ' • ' + ispCheck(obj['isp']);
 var description = '城市：' + createTitle() + '\n地区：' + cityCheck(obj['regionName']) + '\nIP：' + ip + '\n时区：' + obj['timezone'] + '\n服务商：' + obj['isp'] + '\nAS：' + obj['as'];
 $done({
