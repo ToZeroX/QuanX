@@ -458,7 +458,7 @@ function ResourceParse () {
     var leftflowReg = /剩余流量/gmi
     var totalFlowReg = /(总流量|流量总量)/gmi
     var flowData = getSubFlow()
-    total = total.join('\n')
+    $notify('1', '2', typeof total)
 
     if (leftflowReg.test(total)) { // 有剩余流量标签，直接替换文案
       total = total.replace(leftflowReg, '流量剩余')
