@@ -458,7 +458,7 @@ function ResourceParse () {
     var leftflowReg = /剩余流量/gmi
     var totalFlowReg = /(总流量|流量总量)/gmi
     var flowData = getSubFlow()
-    $notify('1', '2', typeof total)
+    total = total.join('\n')
 
     if (leftflowReg.test(total)) { // 有剩余流量标签，直接替换文案
       total = total.replace(leftflowReg, '流量剩余')
@@ -480,6 +480,8 @@ function ResourceParse () {
       // $notify('3333', 'json', fakeData, subinfo_link)
       total = total.join('\n')
     }
+
+    total = total.split('\n')
     if (Pinfo == 1 && ntf_flow == 0) { //假节点类型的流量通知
       flowcheck(total)
     }
