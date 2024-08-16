@@ -20,11 +20,22 @@ const baseConfig = {
   icons: []
 }
 
+const toZeroUrl = 'https://files.tozero.me/QuanX/icons/'
+const toZeroConfig = {
+  name: '圈x 图标',
+  description: 'By ToZero',
+  icons: []
+}
+
 const width = 108;
 const height = 108;
 
-const outputImg = async iconName => {
+const outputImg = async (iconName, isToZero) => {
   return new Promise((resolve, reject) => {
+    let outputPath = path.join(__dirname, 'IconOutput', iconName)
+    if (isToZero) {
+      outputPath =path.join(__dirname, 'tozero/icons', iconName)
+    }
     if (iconName.includes('.r.')) {
       const padding = 16
       sharp(path.join(__dirname, 'IconSrc', iconName))
@@ -36,7 +47,7 @@ const outputImg = async iconName => {
           right: padding,
           background: 'transparent'
         })
-        .toFile(path.join(__dirname, 'IconOutput', iconName), (err, info) => {
+        .toFile(outputPath, (err, info) => {
           if (err) {
             reject(err)
           } else {
@@ -46,7 +57,7 @@ const outputImg = async iconName => {
     } else {
       sharp(path.join(__dirname, 'IconSrc', iconName))
         .resize(width, height)
-        .toFile(path.join(__dirname, 'IconOutput', iconName), (err, info) => {
+        .toFile(outputPath, (err, info) => {
           if (err) {
             reject(err)
           } else {
@@ -63,15 +74,22 @@ const main = async () => {
     const [name] = iconName.split('.')
 
     await outputImg(iconName)
+    await outputImg(iconName, true)
     console.log('Image resized successfully:', i + 1, `/${files.length}`);
 
     baseConfig.icons.push({
       name,
       url: baseUrl + iconName
     })
+
+    toZeroConfig.icons.push({
+      name,
+      url: toZeroUrl + iconName
+    })
   }
 
   fs.writeFileSync('./icons.json', JSON.stringify(baseConfig, null, 2))
+  fs.writeFileSync('./tozero/icons.json', JSON.stringify(toZeroConfig, null, 2))
 }
 
 main()

@@ -455,6 +455,30 @@ function ResourceParse () {
   //开始处理
   if (flag == 1) { //server 类型统一处理
     total = isQuanX(total.filter(Boolean).join("\n"))
+    var leftflowReg = /剩余流量/gmi
+    var totalFlowReg = /(总流量|流量总量)/gmi
+    var flowData = getSubFlow()
+
+    if (leftflowReg.test(total)) { // 有剩余流量标签，直接替换文案
+      total = total.replace(leftflowReg, '流量剩余')
+    } else { // 没有的话 新增剩余流量标签
+      total = total.split('\n')
+      var fakeData = total[0]
+      fakeData = fakeData.replace(/tag=.*,?\s?/gmi, "tag=流量剩余:   " + Number(flowData.leftNumber) + ' GB');
+      total.unshift(fakeData)
+      total = total.join('\n')
+    }
+
+    if (totalFlowReg.test(total)) { // 总流量
+      total = total.replace(totalFlowReg, '流量总量')
+    } else { // 没有的话 新增流量总量标签
+      total = total.split('\n')
+      var fakeData = total[0]
+      fakeData = fakeData.replace(/tag=.*,?\s?/gmi, "tag=流量总量:   " + Number(flowData.totalNumber) + ' GB');
+      total.unshift(fakeData)
+      // $notify('3333', 'json', fakeData, subinfo_link)
+      total = total.join('\n')
+    }
     if (Pinfo == 1 && ntf_flow == 0) { //假节点类型的流量通知
       flowcheck(total)
     }
@@ -502,30 +526,6 @@ function ResourceParse () {
       total = TagCheck_QX(total).join("\n") //节点名检查
       if (PUOT == 1) { total = total.split("\n").map(UOT).join("\n") }
       if (Pcnt == 1) { $notify("⟦" + subtag + "⟧" + "解析后最终返回内容", "节点数量: " + total.split("\n").length, total) }
-      var leftflowReg = /剩余流量/gmi
-      var totalFlowReg = /(总流量|流量总量)/gmi
-      var flowData = getSubFlow()
-
-      if (leftflowReg.test(total)) { // 有剩余流量标签，直接替换文案
-        total = total.replace(leftflowReg, '流量剩余')
-      } else { // 没有的话 新增剩余流量标签
-        total = total.split('\n')
-        var fakeData = total[0]
-        fakeData = fakeData.replace(/tag=.*,?\s?/gmi, "tag=流量剩余:   " + Number(flowData.leftNumber) + ' GB');
-        total.unshift(fakeData)
-        total = total.join('\n')
-      }
-
-      if (totalFlowReg.test(total)) { // 总流量
-        total = total.replace(totalFlowReg, '流量总量')
-      } else { // 没有的话 新增流量总量标签
-        total = total.split('\n')
-        var fakeData = total[0]
-        fakeData = fakeData.replace(/tag=.*,?\s?/gmi, "tag=流量总量:   " + Number(flowData.totalNumber) + ' GB');
-        total.unshift(fakeData)
-        // $notify('3333', 'json', fakeData, subinfo_link)
-        total = total.join('\n')
-      }
 
       total = PRelay == "" ? Base64.encode(total) : ServerRelay(total.split("\n"), PRelay) //强制节点类型 base64 加密后再导入 Quantumult X, 如果是relay，则转换成分流类型
       if (Pflow == 1) {

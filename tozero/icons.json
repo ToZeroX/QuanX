@@ -1,0 +1,174 @@
+{
+  "name": "圈x 图标",
+  "description": "By ToZero",
+  "icons": [
+    {
+      "name": "AI Platforms",
+      "url": "https://files.tozero.me/QuanX/icons/AI Platforms.png"
+    },
+    {
+      "name": "AI_Platforms",
+      "url": "https://files.tozero.me/QuanX/icons/AI_Platforms.png"
+    },
+    {
+      "name": "AdBlack",
+      "url": "https://files.tozero.me/QuanX/icons/AdBlack.png"
+    },
+    {
+      "name": "AdWhite",
+      "url": "https://files.tozero.me/QuanX/icons/AdWhite.png"
+    },
+    {
+      "name": "Airport",
+      "url": "https://files.tozero.me/QuanX/icons/Airport.png"
+    },
+    {
+      "name": "Alibaba",
+      "url": "https://files.tozero.me/QuanX/icons/Alibaba.png"
+    },
+    {
+      "name": "App_Store",
+      "url": "https://files.tozero.me/QuanX/icons/App_Store.png"
+    },
+    {
+      "name": "Apple",
+      "url": "https://files.tozero.me/QuanX/icons/Apple.png"
+    },
+    {
+      "name": "Apple_Music",
+      "url": "https://files.tozero.me/QuanX/icons/Apple_Music.png"
+    },
+    {
+      "name": "Apple_TV",
+      "url": "https://files.tozero.me/QuanX/icons/Apple_TV.png"
+    },
+    {
+      "name": "Available",
+      "url": "https://files.tozero.me/QuanX/icons/Available.png"
+    },
+    {
+      "name": "Binance",
+      "url": "https://files.tozero.me/QuanX/icons/Binance.png"
+    },
+    {
+      "name": "Disney+",
+      "url": "https://files.tozero.me/QuanX/icons/Disney+.png"
+    },
+    {
+      "name": "Dler",
+      "url": "https://files.tozero.me/QuanX/icons/Dler.png"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://files.tozero.me/QuanX/icons/Facebook.png"
+    },
+    {
+      "name": "Final",
+      "url": "https://files.tozero.me/QuanX/icons/Final.png"
+    },
+    {
+      "name": "Flower",
+      "url": "https://files.tozero.me/QuanX/icons/Flower.png"
+    },
+    {
+      "name": "Microsoft-1",
+      "url": "https://files.tozero.me/QuanX/icons/Microsoft-1.png"
+    },
+    {
+      "name": "Microsoft",
+      "url": "https://files.tozero.me/QuanX/icons/Microsoft.png"
+    },
+    {
+      "name": "Netease_Music",
+      "url": "https://files.tozero.me/QuanX/icons/Netease_Music.png"
+    },
+    {
+      "name": "Netease_Music_Unlock",
+      "url": "https://files.tozero.me/QuanX/icons/Netease_Music_Unlock.png"
+    },
+    {
+      "name": "Netflix",
+      "url": "https://files.tozero.me/QuanX/icons/Netflix.png"
+    },
+    {
+      "name": "Netflix_Letter",
+      "url": "https://files.tozero.me/QuanX/icons/Netflix_Letter.png"
+    },
+    {
+      "name": "Rocket-1",
+      "url": "https://files.tozero.me/QuanX/icons/Rocket-1.png"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://files.tozero.me/QuanX/icons/Telegram.png"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://files.tozero.me/QuanX/icons/TikTok.png"
+    },
+    {
+      "name": "Vpn",
+      "url": "https://files.tozero.me/QuanX/icons/Vpn.png"
+    },
+    {
+      "name": "WIFI",
+      "url": "https://files.tozero.me/QuanX/icons/WIFI.png"
+    },
+    {
+      "name": "Wallless",
+      "url": "https://files.tozero.me/QuanX/icons/Wallless.png"
+    },
+    {
+      "name": "Xingmeng",
+      "url": "https://files.tozero.me/QuanX/icons/Xingmeng.png"
+    },
+    {
+      "name": "YouTube-W",
+      "url": "https://files.tozero.me/QuanX/icons/YouTube-W.png"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://files.tozero.me/QuanX/icons/YouTube.png"
+    },
+    {
+      "name": "bilibili",
+      "url": "https://files.tozero.me/QuanX/icons/bilibili.png"
+    },
+    {
+      "name": "bing-1",
+      "url": "https://files.tozero.me/QuanX/icons/bing-1.png"
+    },
+    {
+      "name": "bing",
+      "url": "https://files.tozero.me/QuanX/icons/bing.png"
+    },
+    {
+      "name": "feitu",
+      "url": "https://files.tozero.me/QuanX/icons/feitu.r.png"
+    },
+    {
+      "name": "flash-auto",
+      "url": "https://files.tozero.me/QuanX/icons/flash-auto.png"
+    },
+    {
+      "name": "flash_auto",
+      "url": "https://files.tozero.me/QuanX/icons/flash_auto.png"
+    },
+    {
+      "name": "github",
+      "url": "https://files.tozero.me/QuanX/icons/github.png"
+    },
+    {
+      "name": "icon_bilibili",
+      "url": "https://files.tozero.me/QuanX/icons/icon_bilibili.png"
+    },
+    {
+      "name": "proxy",
+      "url": "https://files.tozero.me/QuanX/icons/proxy.r.png"
+    },
+    {
+      "name": "rocket",
+      "url": "https://files.tozero.me/QuanX/icons/rocket.png"
+    }
+  ]
+}
